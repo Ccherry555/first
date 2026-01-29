@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "互动点子库",
+    "navigationBarBackgroundColor": "#D32F2F",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FFF3E0",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
