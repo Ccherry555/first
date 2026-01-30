@@ -7,6 +7,8 @@ const REWARDED_VIDEO_AD_UNIT_ID = 'adunit-xxxxxxxx'
 // 广告开关：true 表示需要看广告，false 表示跳过广告（可通过代码直接控制）
 const AD_ENABLED = false
 
+
+
 Page({
   /**
    * 页面的初始数据
@@ -1161,6 +1163,15 @@ Page({
       this.setData({
         currentGame: selectedGame
       })
+      
+      // 滚动到游戏详情区域，确保能看到整个游戏规则
+      setTimeout(() => {
+        // 直接滚动到页面顶部下方100px的位置
+        wx.pageScrollTo({
+          scrollTop: 100,
+          duration: 300
+        })
+      }, 500)
     }
   },
 
@@ -1193,6 +1204,15 @@ Page({
     this.setData({
       currentGame: randomGame
     })
+    
+    // 滚动到游戏详情区域，确保能看到整个游戏规则
+    setTimeout(() => {
+      // 直接滚动到页面顶部下方100px的位置
+      wx.pageScrollTo({
+        scrollTop: 100,
+        duration: 300
+      })
+    }, 500)
   },
 
   /**
@@ -1210,5 +1230,7 @@ Page({
         callback()
       }
     }, 1000)
-  }
+  },
+
+
 })

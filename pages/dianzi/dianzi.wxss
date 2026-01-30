@@ -1,153 +1,184 @@
 /* pages/dianzi/dianzi.wxss */
-/* 互动点子库 - 点子tab页面样式 */
+/* 互动点子库 - 主页面样式 */
 
-/* 全局样式 */
 .container {
   min-height: 100vh;
-  padding: 20rpx;
-  background-color: #FFF3E0;
-  display: flex;
-  flex-direction: column;
+  padding: 30rpx;
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
 }
 
 /* 标题区域 */
 .title-section {
   text-align: center;
-  margin-bottom: 40rpx;
-  padding: 20rpx;
-  background-color: #D32F2F;
-  border-radius: 20rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 50rpx;
+  padding: 40rpx 0;
 }
 
 .main-title {
-  font-size: 36rpx;
-  font-weight: bold;
-  color: white;
   display: block;
-  margin-bottom: 10rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #D32F2F;
+  margin-bottom: 20rpx;
 }
 
 .sub-title {
-  font-size: 24rpx;
-  color: #FFE0B2;
   display: block;
+  font-size: 28rpx;
+  color: #FF6F00;
 }
+
+
 
 /* 场景选择区 */
 .scene-section {
+  background: linear-gradient(135deg, #FFE0E0 0%, #FFF8E1 100%);
+  border-radius: 20rpx;
+  padding: 40rpx;
   margin-bottom: 40rpx;
-}
-
-.section-title {
-  font-size: 28rpx;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20rpx;
-  display: block;
+  box-shadow: 0 4rpx 12rpx rgba(211, 47, 47, 0.15);
 }
 
 .scene-scroll {
   width: 100%;
-  white-space: nowrap;
-  margin-bottom: 10rpx;
+  overflow: hidden;
+}
+
+.section-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #D32F2F;
+  margin-bottom: 30rpx;
+  text-align: center;
 }
 
 .scene-buttons {
-  display: inline-flex;
-  padding-bottom: 10rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24rpx;
+  padding: 0 10rpx;
 }
 
 .scene-btn {
-  margin: 0 10rpx;
-  padding: 15rpx 30rpx;
-  border-radius: 25rpx;
-  font-size: 24rpx;
+  flex: 0 0 auto;
+  min-width: 180rpx;
+  height: 90rpx;
+  background: linear-gradient(135deg, #FFD54F 0%, #FFC107 100%);
+  color: #333;
+  font-size: 28rpx;
   font-weight: bold;
-  background-color: white;
-  color: #666;
-  border: 2rpx solid #E0E0E0;
-  transition: all 0.3s ease;
+  border-radius: 50rpx;
+  border: none;
+  box-shadow: 0 4rpx 8rpx rgba(255, 193, 7, 0.3);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24rpx;
 }
 
 .scene-btn.active {
-  background-color: #D32F2F;
-  color: white;
-  border-color: #D32F2F;
+  background: linear-gradient(135deg, #D32F2F 0%, #F44336 100%);
+  color: #fff;
+  box-shadow: 0 6rpx 16rpx rgba(211, 47, 47, 0.4);
+  transform: scale(1.05);
 }
 
-.scene-btn:active {
-  transform: scale(0.95);
+.scene-btn::after {
+  border: none;
 }
 
 /* 生成模式区 */
 .generate-section {
-  background-color: white;
+  background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
   border-radius: 20rpx;
-  padding: 30rpx;
-  margin-bottom: 30rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 12rpx rgba(255, 152, 0, 0.15);
 }
 
 .random-btn {
   width: 100%;
-  padding: 20rpx;
-  background-color: #FF9800;
-  color: white;
-  border-radius: 15rpx;
-  font-size: 28rpx;
+  height: 90rpx;
+  background: linear-gradient(135deg, #D32F2F 0%, #F44336 100%);
+  color: #fff;
+  font-size: 32rpx;
   font-weight: bold;
-  margin-bottom: 30rpx;
+  border-radius: 45rpx;
   border: none;
-  transition: all 0.3s ease;
+  margin-bottom: 30rpx;
+  box-shadow: 0 6rpx 16rpx rgba(211, 47, 47, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.random-btn:active {
-  transform: scale(0.98);
+.random-btn::after {
+  border: none;
 }
 
-/* 游戏列表 */
 .game-list {
-  margin-top: 20rpx;
+  margin-top: 30rpx;
 }
 
 .list-title {
-  font-size: 24rpx;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15rpx;
   display: block;
+  font-size: 28rpx;
+  color: #D32F2F;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+  text-align: center;
 }
 
 .game-item {
-  padding: 20rpx;
-  background-color: #F5F5F5;
-  border-radius: 10rpx;
+  background: #fff;
+  padding: 25rpx 30rpx;
   margin-bottom: 15rpx;
-  font-size: 24rpx;
+  border-radius: 15rpx;
+  font-size: 28rpx;
   color: #333;
-  transition: all 0.3s ease;
-  border-left: 5rpx solid #E0E0E0;
-}
-
-.game-item.active {
-  background-color: #E3F2FD;
-  border-left-color: #1976D2;
-  color: #1565C0;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  text-align: center;
 }
 
 .game-item:active {
+  background: #FFF3E0;
   transform: scale(0.98);
-  background-color: #EEEEEE;
+  box-shadow: 0 4rpx 12rpx rgba(211, 47, 47, 0.2);
+}
+
+.game-item.active {
+  background: linear-gradient(135deg, #FFCDD2 0%, #F8BBD0 100%);
+  color: #D32F2F;
+  font-weight: bold;
+  box-shadow: 0 4rpx 12rpx rgba(211, 47, 47, 0.25);
+  transform: scale(1.02);
 }
 
 /* 游戏详情区 */
 .detail-section {
-  background-color: white;
+  background: linear-gradient(135deg, #FFE0E0 0%, #FFF8E1 100%);
   border-radius: 20rpx;
-  padding: 30rpx;
-  margin-bottom: 30rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 6rpx 20rpx rgba(211, 47, 47, 0.2);
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .detail-header {
@@ -156,134 +187,364 @@
   align-items: center;
   margin-bottom: 30rpx;
   padding-bottom: 20rpx;
-  border-bottom: 2rpx solid #EEEEEE;
+  border-bottom: 2rpx solid #FFD54F;
 }
 
 .game-name {
-  font-size: 32rpx;
+  font-size: 36rpx;
   font-weight: bold;
   color: #D32F2F;
 }
 
 .change-btn {
-  padding: 10rpx 20rpx;
-  background-color: #FF9800;
-  color: white;
-  border-radius: 10rpx;
-  font-size: 20rpx;
-  font-weight: bold;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 25rpx;
+  background: linear-gradient(135deg, #FFD54F 0%, #FFC107 100%);
+  color: #333;
+  font-size: 24rpx;
+  border-radius: 30rpx;
   border: none;
-  transition: all 0.3s ease;
 }
 
-.change-btn:active {
-  transform: scale(0.95);
+.change-btn::after {
+  border: none;
 }
 
-/* 游戏详情项 */
 .detail-item {
-  margin-bottom: 25rpx;
+  margin-bottom: 30rpx;
 }
 
 .detail-label {
-  font-size: 24rpx;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10rpx;
   display: block;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #D32F2F;
+  margin-bottom: 15rpx;
 }
 
 .detail-content {
-  font-size: 22rpx;
-  color: #666;
-  line-height: 1.5;
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.8;
 }
 
 /* 道具列表 */
 .props-list {
-  margin-top: 10rpx;
+  background: #fff;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
 }
 
 .props-item {
-  font-size: 22rpx;
-  color: #666;
-  margin-bottom: 8rpx;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 12rpx 0;
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.6;
 }
 
 .props-dot {
-  font-size: 24rpx;
-  color: #D32F2F;
+  color: #FF6F00;
+  font-weight: bold;
   margin-right: 10rpx;
+  font-size: 32rpx;
 }
 
 /* 规则列表 */
 .rules-list {
-  margin-top: 10rpx;
+  background: #fff;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
 }
 
 .rule-item {
-  font-size: 22rpx;
-  color: #666;
-  margin-bottom: 10rpx;
   display: flex;
   align-items: flex-start;
+  padding: 12rpx 0;
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.8;
 }
 
 .rule-num {
-  font-size: 22rpx;
-  font-weight: bold;
   color: #D32F2F;
+  font-weight: bold;
   margin-right: 10rpx;
-  min-width: 30rpx;
+  min-width: 40rpx;
 }
 
 .rule-text {
   flex: 1;
+}
+
+/* 24点算术区域 */
+.game24-section {
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.game24-btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 45rpx;
+  border: none;
+  box-shadow: 0 6rpx 16rpx rgba(76, 175, 80, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.game24-btn::after {
+  border: none;
+}
+
+.game24-area {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 6rpx 20rpx rgba(76, 175, 80, 0.2);
+}
+
+.game24-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #4CAF50;
+}
+
+.game24-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #2E7D32;
+}
+
+.game24-close {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #fff;
+  color: #666;
+  font-size: 32rpx;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+}
+
+.game24-close::after {
+  border: none;
+}
+
+.game24-rules {
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.game24-rule-text {
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.6;
+}
+
+.game24-numbers {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30rpx;
+  gap: 20rpx;
+}
+
+.game24-number {
+  flex: 1;
+  height: 120rpx;
+  line-height: 120rpx;
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: bold;
+  border-radius: 15rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 12rpx rgba(76, 175, 80, 0.3);
+}
+
+.game24-input-section {
+  margin-bottom: 20rpx;
+}
+
+.game24-input-label {
+  display: block;
+  font-size: 28rpx;
+  color: #2E7D32;
+  font-weight: 500;
+  margin-bottom: 15rpx;
+}
+
+.game24-input {
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  border: 2rpx solid #4CAF50;
+  border-radius: 15rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+
+/* 24点算术虚拟键盘 */
+.game24-keyboard {
+  margin-bottom: 20rpx;
+}
+
+.game24-key-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.game24-key {
+  flex: 1;
+  margin-right: 10rpx;
+  min-height: 70rpx;
+  background: #ffffff;
+  border-radius: 12rpx;
+  border: 2rpx solid #C8E6C9;
+  font-size: 28rpx;
+  color: #2E7D32;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.04);
+}
+
+.game24-key:last-child {
+  margin-right: 0;
+}
+
+.game24-key.wide {
+  flex: 1.5;
+}
+
+.game24-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+  justify-content: space-between;
+}
+
+.game24-submit-btn,
+.game24-new-btn,
+.game24-answer-btn {
+  flex: 1;
+  min-width: calc(33.33% - 10rpx);
+  min-height: 90rpx;
+  padding: 12rpx 8rpx;
+  border-radius: 45rpx;
+  border: none;
+  font-size: 24rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
   line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.game24-submit-btn {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(76, 175, 80, 0.3);
+}
+
+.game24-new-btn {
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+  color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(255, 152, 0, 0.3);
+}
+
+.game24-answer-btn {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(33, 150, 243, 0.3);
+}
+
+.game24-submit-btn::after,
+.game24-new-btn::after,
+.game24-answer-btn::after {
+  border: none;
+}
+
+.game24-message {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  border-radius: 15rpx;
+  text-align: center;
+}
+
+.game24-message-text {
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.game24-message-text.success {
+  color: #4CAF50;
+  background: #E8F5E9;
+}
+
+.game24-message-text.error {
+  color: #F44336;
+  background: #FFEBEE;
 }
 
 /* 联系我们区域 */
 .contact-section {
-  margin-top: auto;
-  padding: 20rpx;
+  margin-top: 60rpx;
+  margin-bottom: 40rpx;
+  padding: 30rpx;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFE0E0 100%);
+  border-radius: 20rpx;
   text-align: center;
-  font-size: 20rpx;
-  color: #666;
-  background-color: white;
-  border-radius: 10rpx;
-  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4rpx 12rpx rgba(211, 47, 47, 0.15);
 }
 
 .contact-text {
-  display: block;
+  font-size: 30rpx;
+  color: #D32F2F;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
-/* 响应式设计 */
-@media (max-width: 375px) {
+/* 适配小屏幕 */
+@media screen and (max-width: 375px) {
   .main-title {
-    font-size: 32rpx;
-  }
-  
-  .sub-title {
-    font-size: 20rpx;
+    font-size: 36rpx;
   }
   
   .scene-btn {
-    font-size: 20rpx;
-    padding: 12rpx 24rpx;
-  }
-  
-  .game-name {
     font-size: 28rpx;
   }
   
-  .detail-label {
-    font-size: 22rpx;
-  }
-  
-  .detail-content {
-    font-size: 20rpx;
+  .contact-text {
+    font-size: 26rpx;
   }
 }
