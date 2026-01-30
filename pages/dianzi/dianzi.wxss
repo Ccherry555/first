@@ -53,8 +53,17 @@
   font-size: 32rpx;
   font-weight: bold;
   color: #D32F2F;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+.section-subtitle {
+  display: block;
+  font-size: 22rpx;
+  color: #FF6F00;
   margin-bottom: 30rpx;
   text-align: center;
+  font-weight: 500;
 }
 
 .scene-buttons {
@@ -81,6 +90,29 @@
   justify-content: center;
   text-align: center;
   padding: 0 24rpx;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4rpx 8rpx rgba(255, 193, 7, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6rpx 12rpx rgba(255, 193, 7, 0.5);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 4rpx 8rpx rgba(255, 193, 7, 0.3);
+    transform: scale(1);
+  }
+}
+
+.scene-btn:active {
+  background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 4rpx rgba(255, 193, 7, 0.5);
 }
 
 .scene-btn.active {

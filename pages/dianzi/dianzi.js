@@ -10,6 +10,8 @@ const AD_ENABLED = false
 
 
 Page({
+  // 弹窗定时器变量（用于防止重复创建定时器）
+  welcomeModalTimer: null,
   /**
    * 页面的初始数据
    * 包含场景数据、当前选中状态、游戏详情等
@@ -20,6 +22,9 @@ Page({
     
     // 当前生成的游戏详情
     currentGame: null,
+    
+    // 弹窗控制标志
+    isShowingWelcomeModal: false,
     
     // 场景列表（用于渲染顶部场景按钮，方便后续继续扩展）
     sceneList: [
@@ -1067,6 +1072,132 @@ Page({
    */
   onLoad(options) {
     // 页面加载时的初始化操作
+    this._checkUserData()
+  },
+
+  /**
+   * 检查用户数据，显示欢迎信息或使用统计
+   */
+  _checkUserData() {
+    // 防止重复弹出弹窗
+    if (this.data.isShowingWelcomeModal || this.welcomeModalTimer !== null) {
+      return
+    }
+    
+    try {
+      // 读取本地存储的用户数据
+      const userData = wx.getStorageSync('userData')
+      const now = new Date()
+      const nowTime = now.getTime()
+      
+      if (!userData) {
+        // 首次使用，创建用户数据
+        const firstUseData = {
+          firstUseTime: nowTime,
+          lastUseTime: nowTime,
+          useCount: 1
+        }
+        wx.setStorageSync('userData', firstUseData)
+        
+        // 设置标志，防止重复弹出
+        this.setData({
+          isShowingWelcomeModal: true
+        })
+        
+        // 显示首次欢迎提示（使用定时器变量防止重复创建）
+        this.welcomeModalTimer = setTimeout(() => {
+          this.welcomeModalTimer = null
+          wx.showModal({
+            title: '🎉 欢迎使用互动点子库！',
+            content: '感谢您的使用！这里有丰富的聚会小游戏，为您的聚会增添欢乐。\n\n快来选择一个场景，开始生成游戏吧！',
+            showCancel: false,
+            confirmText: '开始使用',
+            confirmColor: '#D32F2F',
+            success: () => {
+              // 弹窗关闭后重置标志
+              this.setData({
+                isShowingWelcomeModal: false
+              })
+            },
+            fail: () => {
+              // 弹窗失败后重置标志
+              this.setData({
+                isShowingWelcomeModal: false
+              })
+            }
+          })
+        }, 500)
+      } else {
+        // 非首次使用，更新数据
+        const updatedData = {
+          firstUseTime: userData.firstUseTime || nowTime,
+          lastUseTime: nowTime,
+          useCount: (userData.useCount || 0) + 1
+        }
+        wx.setStorageSync('userData', updatedData)
+        
+        // 格式化上次使用时间
+        const lastTime = new Date(userData.lastUseTime || nowTime)
+        const timeDiff = nowTime - lastTime.getTime()
+        let timeText = ''
+        
+        if (timeDiff < 60000) {
+          timeText = '刚刚'
+        } else if (timeDiff < 3600000) {
+          const minutes = Math.floor(timeDiff / 60000)
+          timeText = `${minutes}分钟前`
+        } else if (timeDiff < 86400000) {
+          const hours = Math.floor(timeDiff / 3600000)
+          timeText = `${hours}小时前`
+        } else if (timeDiff < 604800000) {
+          const days = Math.floor(timeDiff / 86400000)
+          timeText = `${days}天前`
+        } else {
+          const month = lastTime.getMonth() + 1
+          const date = lastTime.getDate()
+          timeText = `${month}月${date}日`
+        }
+        
+        // 设置标志，防止重复弹出
+        this.setData({
+          isShowingWelcomeModal: true
+        })
+        
+        // 显示欢迎回来信息（使用定时器变量防止重复创建）
+        this.welcomeModalTimer = setTimeout(() => {
+          this.welcomeModalTimer = null
+          wx.showModal({
+            title: '👋 欢迎回来！',
+            content: `您上次使用：${timeText}\n累计使用：${updatedData.useCount}次\n\n感谢您的持续使用！如果觉得好用，欢迎分享给朋友们哦～`,
+            showCancel: false,
+            confirmText: '知道了',
+            confirmColor: '#D32F2F',
+            success: () => {
+              // 弹窗关闭后重置标志
+              this.setData({
+                isShowingWelcomeModal: false
+              })
+            },
+            fail: () => {
+              // 弹窗失败后重置标志
+              this.setData({
+                isShowingWelcomeModal: false
+              })
+            }
+          })
+        }, 500)
+      }
+    } catch (e) {
+      console.error('检查用户数据失败', e)
+      // 出错时也重置标志和定时器
+      if (this.welcomeModalTimer !== null) {
+        clearTimeout(this.welcomeModalTimer)
+        this.welcomeModalTimer = null
+      }
+      this.setData({
+        isShowingWelcomeModal: false
+      })
+    }
   },
 
   /**

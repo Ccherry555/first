@@ -51,10 +51,28 @@
   transition: all 0.3s ease;
   border: none;
   box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+  }
 }
 
 .game-btn:active {
   transform: scale(0.95);
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.2);
 }
 
 .game24-btn {
@@ -62,9 +80,17 @@
   color: white;
 }
 
+.game24-btn:active {
+  background-color: #2E7D32;
+}
+
 .mahjong-btn {
   background-color: #1976D2;
   color: white;
+}
+
+.mahjong-btn:active {
+  background-color: #1565C0;
 }
 
 /* 24点算术区域 */
@@ -520,6 +546,35 @@
   font-weight: bold;
   text-align: center;
   border: none;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.mahjong-clear-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.2);
+  background-color: #F57C00;
+}
+
+.mahjong-classic-btn {
+  flex: 1;
+  margin: 0 10rpx;
+  padding: 20rpx;
+  background-color: #FF9800;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.mahjong-classic-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.2);
+  background-color: #F57C00;
 }
 
 .mahjong-check-btn {
@@ -533,6 +588,14 @@
   font-weight: bold;
   text-align: center;
   border: none;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.mahjong-check-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.2);
+  background-color: #388E3C;
 }
 
 .mahjong-check-btn:disabled {

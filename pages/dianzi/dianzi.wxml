@@ -11,6 +11,7 @@
   <!-- 场景选择区 -->
   <view class="scene-section">
     <text class="section-title">选择场景</text>
+    <text class="section-subtitle">点击下方场景按钮开始</text>
     <!-- 横向可滚动的场景选择条，解决按钮过多显示不全的问题 -->
     <scroll-view class="scene-scroll" scroll-x="true" show-scrollbar="false">
       <view class="scene-buttons">

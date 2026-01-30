@@ -150,6 +150,7 @@
     <!-- 操作按钮区 -->
     <view class="mahjong-buttons">
       <button class="mahjong-clear-btn" bindtap="clearMahjongHand">清空手牌</button>
+      <button class="mahjong-classic-btn" bindtap="generateClassicMahjong">经典牌局</button>
       <button class="mahjong-check-btn" bindtap="startHuGuess" disabled="{{mahjongHand.length !== 13}}">
         开始猜胡
       </button>
