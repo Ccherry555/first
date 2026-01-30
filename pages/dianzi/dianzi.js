@@ -1132,6 +1132,101 @@ Page({
       selectedScene: scene,
       currentGame: null
     })
+    
+    // 如果选择了场景，滚动到生成模式区
+    if (scene) {
+      this._scrollToGenerateSection()
+    }
+  },
+
+  /**
+   * 滚动到生成模式区域
+   */
+  _scrollToGenerateSection() {
+    // 延迟一下，确保页面渲染完成
+    setTimeout(() => {
+      const query = wx.createSelectorQuery().in(this)
+      query.select('#generate-section').boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec((res) => {
+        if (res && res[0] && res[1]) {
+          // 计算目标滚动位置：当前滚动位置 + 元素距离视口顶部的距离 - 偏移量
+          const scrollTop = res[1].scrollTop + res[0].top - 30
+          wx.pageScrollTo({
+            scrollTop: scrollTop,
+            duration: 500
+          }).catch((err) => {
+            console.error('滚动失败：', err)
+          })
+        } else {
+          // 如果找不到元素，延迟重试一次
+          setTimeout(() => {
+            const retryQuery = wx.createSelectorQuery().in(this)
+            retryQuery.select('#generate-section').boundingClientRect()
+            retryQuery.selectViewport().scrollOffset()
+            retryQuery.exec((retryRes) => {
+              if (retryRes && retryRes[0] && retryRes[1]) {
+                const scrollTop = retryRes[1].scrollTop + retryRes[0].top - 30
+                wx.pageScrollTo({
+                  scrollTop: scrollTop,
+                  duration: 500
+                })
+              }
+            })
+          }, 200)
+        }
+      })
+    }, 100)
+  },
+
+  /**
+   * 滚动到游戏详情区域
+   */
+  _scrollToGameDetail() {
+    // 延迟一下，确保页面渲染完成
+    setTimeout(() => {
+      const query = wx.createSelectorQuery().in(this)
+      query.select('#game-detail').boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec((res) => {
+        console.log('滚动查询结果：', res)
+        if (res && res[0] && res[1]) {
+          // 计算目标滚动位置：当前滚动位置 + 元素距离视口顶部的距离 - 偏移量
+          const scrollTop = res[1].scrollTop + res[0].top - 30
+          console.log('准备滚动到：', scrollTop)
+          wx.pageScrollTo({
+            scrollTop: scrollTop,
+            duration: 500
+          }).then(() => {
+            console.log('滚动成功')
+          }).catch((err) => {
+            console.error('滚动失败：', err)
+            // 如果失败，尝试使用更简单的方式
+            wx.pageScrollTo({
+              scrollTop: scrollTop,
+              duration: 500
+            })
+          })
+        } else {
+          console.warn('未找到游戏详情区域，延迟重试')
+          // 如果第一次没找到，再延迟一点重试
+          setTimeout(() => {
+            const retryQuery = wx.createSelectorQuery().in(this)
+            retryQuery.select('#game-detail').boundingClientRect()
+            retryQuery.selectViewport().scrollOffset()
+            retryQuery.exec((retryRes) => {
+              if (retryRes && retryRes[0] && retryRes[1]) {
+                const retryScrollTop = retryRes[1].scrollTop + retryRes[0].top - 30
+                wx.pageScrollTo({
+                  scrollTop: retryScrollTop,
+                  duration: 500
+                })
+              }
+            })
+          }, 200)
+        }
+      })
+    }, 300) // 增加延迟时间，确保页面完全渲染
   },
 
   /**
@@ -1160,18 +1255,11 @@ Page({
     const selectedGame = games.find(game => game.name === gameName)
     
     if (selectedGame) {
-      this.setData({
-        currentGame: selectedGame
+      this.setData({ currentGame: selectedGame }, () => {
+        // setData 完成后滚动到详情区域
+        this._scrollToGameDetail()
       })
-      
-      // 滚动到游戏详情区域，确保能看到整个游戏规则
-      setTimeout(() => {
-        // 直接滚动到页面顶部下方100px的位置
-        wx.pageScrollTo({
-          scrollTop: 100,
-          duration: 300
-        })
-      }, 500)
+      console.log('选择游戏：', selectedGame.name)
     }
   },
 
@@ -1201,18 +1289,11 @@ Page({
     const randomIndex = Math.floor(Math.random() * games.length)
     const randomGame = games[randomIndex]
     
-    this.setData({
-      currentGame: randomGame
+    this.setData({ currentGame: randomGame }, () => {
+      // setData 完成后滚动到详情区域
+      this._scrollToGameDetail()
     })
-    
-    // 滚动到游戏详情区域，确保能看到整个游戏规则
-    setTimeout(() => {
-      // 直接滚动到页面顶部下方100px的位置
-      wx.pageScrollTo({
-        scrollTop: 100,
-        duration: 300
-      })
-    }, 500)
+    console.log('随机生成游戏：', randomGame.name)
   },
 
   /**

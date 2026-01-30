@@ -11,22 +11,25 @@
 /* 标题区域 */
 .title-section {
   text-align: center;
-  margin-bottom: 50rpx;
-  padding: 40rpx 0;
+  margin-bottom: 40rpx;
+  padding: 20rpx;
+  background-color: #D32F2F;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
 }
 
 .main-title {
-  display: block;
-  font-size: 42rpx;
+  font-size: 36rpx;
   font-weight: bold;
-  color: #D32F2F;
-  margin-bottom: 20rpx;
+  color: white;
+  display: block;
+  margin-bottom: 10rpx;
 }
 
 .sub-title {
+  font-size: 24rpx;
+  color: #FFE0B2;
   display: block;
-  font-size: 28rpx;
-  color: #FF6F00;
 }
 
 
