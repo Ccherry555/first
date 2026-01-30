@@ -8,13 +8,10 @@
     <text class="sub-title">为您的聚会增添欢乐</text>
   </view>
 
-  <!-- 游戏入口区 -->
-  <view class="game-entrances">
-    <button class="game-btn game24-btn" bindtap="toggleGame24">
+  <!-- 24点算术入口 -->
+  <view class="game24-section">
+    <button class="game24-btn" bindtap="toggleGame24">
       🎯 24点算术
-    </button>
-    <button class="game-btn mahjong-btn" bindtap="toggleMahjong">
-      🀄 麻将胡牌
     </button>
   </view>
 
@@ -42,7 +39,7 @@
       <input 
         class="game24-input" 
         type="text" 
-        placeholder="例如：(1 - 1) + (8 × 3)"
+        placeholder="例如：(9 × 8) - (8 × 3)"
         value="{{game24Expression}}"
         bindinput="onGame24Input"
         confirm-type="done"
@@ -93,93 +90,6 @@
     <!-- 提示信息 -->
     <view class="game24-message" wx:if="{{game24Message}}">
       <text class="game24-message-text {{game24MessageType}}">{{game24Message}}</text>
-    </view>
-  </view>
-
-  <!-- 麻将胡牌区域 -->
-  <view class="mahjong-area" wx:if="{{showMahjong}}">
-    <view class="mahjong-header">
-      <text class="mahjong-title">🀄 麻将胡牌</text>
-      <button class="mahjong-close" bindtap="toggleMahjong">✕</button>
-    </view>
-    
-    <view class="mahjong-rules">
-      <text class="mahjong-rule-text">请选择13张万子牌，点击"判定胡牌"按钮计算可胡的牌</text>
-    </view>
-
-    <!-- 万子牌选择区 -->
-    <view class="mahjong-tiles-section">
-      <text class="mahjong-tiles-label">选择万子牌（一-九万）：</text>
-      <view class="mahjong-tiles">
-        <button 
-          wx:for="{{[1,2,3,4,5,6,7,8,9]}}" 
-          wx:key="index"
-          class="mahjong-tile"
-          bindtap="addMahjongTile"
-          data-tile="{{item}}"
-        >
-          <view class="mahjong-tile-content">
-            <text class="mahjong-tile-number">{{['', '一', '二', '三', '四', '五', '六', '七', '八', '九'][item]}}</text>
-            <text class="mahjong-tile-suit">萬</text>
-          </view>
-        </button>
-      </view>
-    </view>
-
-    <!-- 手牌展示区 -->
-    <view class="mahjong-hand-section">
-      <text class="mahjong-hand-label">当前手牌（{{mahjongHand.length}}张）：</text>
-      <scroll-view class="mahjong-hand-scroll" scroll-x="true" show-scrollbar="false">
-        <view class="mahjong-hand">
-          <view 
-            wx:for="{{mahjongHand}}" 
-            wx:key="index"
-            class="mahjong-hand-tile"
-            bindtap="removeMahjongTile"
-            data-index="{{index}}"
-          >
-            <view class="mahjong-tile-content">
-              <text class="mahjong-tile-number">{{['', '一', '二', '三', '四', '五', '六', '七', '八', '九'][item]}}</text>
-              <text class="mahjong-tile-suit">萬</text>
-            </view>
-          </view>
-        </view>
-      </scroll-view>
-    </view>
-
-    <!-- 操作按钮区 -->
-    <view class="mahjong-buttons">
-      <button class="mahjong-clear-btn" bindtap="clearMahjongHand">清空手牌</button>
-      <button class="mahjong-check-btn" bindtap="checkMahjongHu" disabled="{{mahjongHand.length !== 13}}">
-        判定胡牌
-      </button>
-    </view>
-
-    <!-- 结果展示区 -->
-    <view class="mahjong-result" wx:if="{{mahjongResult}}">
-      <text class="mahjong-result-title">判定结果：</text>
-      <view class="mahjong-result-row">
-        <text class="mahjong-result-text">可胡牌：</text>
-        <text class="mahjong-result-value">
-          {{mahjongResult.huCardsText}}
-        </text>
-      </view>
-      <view class="mahjong-result-row">
-        <text class="mahjong-result-text">胡牌类型：</text>
-        <text class="mahjong-result-value">
-          {{mahjongResult.huTypeText}}
-        </text>
-      </view>
-    </view>
-
-    <!-- 规则说明区 -->
-    <view class="mahjong-rule-section">
-      <text class="mahjong-rule-title">规则说明：</text>
-      <view class="mahjong-rule-list">
-        <text class="mahjong-rule-item">1. 常规胡牌：4组顺子/刻子 + 1对将牌</text>
-        <text class="mahjong-rule-item">2. 七对胡牌：7个不同的对子</text>
-        <text class="mahjong-rule-item">3. 顺子：如123万，刻子：如555万，将牌：如77万</text>
-      </view>
     </view>
   </view>
 
