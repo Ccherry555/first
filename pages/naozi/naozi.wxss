@@ -1,0 +1,881 @@
+/* pages/naozi/naozi.wxss */
+/* 互动点子库 - 脑子tab页面样式 */
+
+/* 全局样式 */
+.container {
+  min-height: 100vh;
+  padding: 20rpx;
+  background-color: #FFF3E0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 标题区域 */
+.title-section {
+  text-align: center;
+  margin-bottom: 40rpx;
+  padding: 20rpx;
+  background-color: #D32F2F;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.main-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: white;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.sub-title {
+  font-size: 24rpx;
+  color: #FFE0B2;
+  display: block;
+}
+
+/* 游戏入口区 */
+.game-entrances {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40rpx;
+}
+
+.game-btn {
+  width: 45%;
+  padding: 20rpx;
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.game-btn:active {
+  transform: scale(0.95);
+}
+
+.game24-btn {
+  background-color: #1976D2;
+  color: white;
+}
+
+.mahjong-btn {
+  background-color: #388E3C;
+  color: white;
+}
+
+/* 24点算术区域 */
+.game24-area {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.game24-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.game24-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1976D2;
+}
+
+.game24-close {
+  font-size: 32rpx;
+  color: #666;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.game24-rules {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background-color: #E3F2FD;
+  border-radius: 10rpx;
+}
+
+.game24-rule-text {
+  font-size: 24rpx;
+  color: #1565C0;
+  line-height: 1.5;
+}
+
+/* 24点数字显示 */
+.game24-numbers {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30rpx;
+}
+
+.game24-number {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #1976D2;
+  color: white;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2);
+}
+
+/* 24点输入区域 */
+.game24-input-section {
+  margin-bottom: 20rpx;
+}
+
+.game24-input-label {
+  display: block;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.game24-input {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid #BDBDBD;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+  background-color: #FAFAFA;
+}
+
+/* 24点虚拟键盘 */
+.game24-keyboard {
+  margin-bottom: 20rpx;
+}
+
+.game24-key-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.game24-key {
+  flex: 1;
+  margin: 0 5rpx;
+  padding: 15rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  background-color: #F5F5F5;
+  border: 1rpx solid #E0E0E0;
+}
+
+.game24-key.wide {
+  flex: 2;
+}
+
+/* 24点按钮区域 */
+.game24-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
+}
+
+.game24-submit-btn {
+  flex: 1;
+  margin: 0 5rpx;
+  padding: 20rpx;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+.game24-new-btn {
+  flex: 1;
+  margin: 0 5rpx;
+  padding: 20rpx;
+  background-color: #FF9800;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+.game24-answer-btn {
+  flex: 1;
+  margin: 0 5rpx;
+  padding: 20rpx;
+  background-color: #9C27B0;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+/* 24点提示信息 */
+.game24-message {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.game24-message-text {
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.game24-message-text.success {
+  color: #4CAF50;
+  background-color: #E8F5E8;
+}
+
+.game24-message-text.error {
+  color: #F44336;
+  background-color: #FFEBEE;
+}
+
+.game24-message-text.info {
+  color: #2196F3;
+  background-color: #E3F2FD;
+}
+
+/* 麻将胡牌区域 */
+.mahjong-area {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.mahjong-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.mahjong-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #388E3C;
+}
+
+.mahjong-close {
+  font-size: 32rpx;
+  color: #666;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mahjong-rules {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background-color: #E8F5E8;
+  border-radius: 10rpx;
+}
+
+.mahjong-rule-text {
+  font-size: 24rpx;
+  color: #2E7D32;
+  line-height: 1.5;
+}
+
+/* 麻将牌选择区 */
+.mahjong-tiles-section {
+  margin-bottom: 30rpx;
+}
+
+.mahjong-tiles-label {
+  display: block;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15rpx;
+}
+
+.mahjong-tiles {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.mahjong-tile {
+  width: 60rpx;
+  height: 90rpx;
+  margin: 10rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+  border: 2rpx solid #E0E0E0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.mahjong-tile:active {
+  transform: scale(0.95);
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2);
+  background-color: #E0E0E0;
+}
+
+.mahjong-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
+  z-index: 0;
+}
+
+.mahjong-tile-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mahjong-tile-number {
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 3rpx;
+}
+
+.mahjong-tile-suit {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #D32F2F;
+}
+
+/* 手牌展示区 */
+.mahjong-hand-section {
+  margin-bottom: 30rpx;
+  padding: 0 5rpx;
+}
+
+.mahjong-hand-label {
+  display: block;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15rpx;
+}
+
+.mahjong-hand-scroll {
+  width: 100%;
+  white-space: nowrap;
+  margin-bottom: 10rpx;
+}
+
+.mahjong-hand {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.mahjong-hand-tile {
+  flex: 1;
+  height: 70rpx;
+  margin: 0 1rpx;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF9C4;
+  border: 2rpx solid #FFD54F;
+  position: relative;
+  overflow: hidden;
+  min-width: 45rpx;
+}
+
+.mahjong-hand-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFDE7 100%);
+  z-index: 0;
+}
+
+.mahjong-hand-tile .mahjong-tile-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mahjong-hand-tile .mahjong-tile-number {
+  font-size: 16rpx;
+  margin-bottom: 1rpx;
+}
+
+.mahjong-hand-tile .mahjong-tile-suit {
+  font-size: 20rpx;
+}
+
+/* 麻将操作按钮区 */
+.mahjong-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30rpx;
+}
+
+.mahjong-clear-btn {
+  flex: 1;
+  margin: 0 10rpx;
+  padding: 20rpx;
+  background-color: #FF9800;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+.mahjong-check-btn {
+  flex: 1;
+  margin: 0 10rpx;
+  padding: 20rpx;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+.mahjong-check-btn:disabled {
+  background-color: #BDBDBD;
+  color: #FFFFFF;
+}
+
+/* 麻将结果展示区 */
+.mahjong-result {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background-color: #E8F5E8;
+  border-radius: 10rpx;
+}
+
+.mahjong-result-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #2E7D32;
+  margin-bottom: 15rpx;
+}
+
+.mahjong-result-row {
+  display: flex;
+  margin-bottom: 10rpx;
+}
+
+.mahjong-result-text {
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #333;
+  width: 120rpx;
+}
+
+.mahjong-result-value {
+  font-size: 22rpx;
+  color: #333;
+  flex: 1;
+}
+
+.mahjong-result-tiles {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mahjong-result-tiles .mahjong-hand-tile {
+  width: 60rpx;
+  height: 90rpx;
+  margin: 5rpx;
+}
+
+.mahjong-result-empty {
+  font-size: 22rpx;
+  color: #333;
+}
+
+.selectable-tile {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selectable-tile:active {
+  transform: scale(1.1);
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2);
+}
+
+.mahjong-selected-hu {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  background-color: #FFF8E1;
+  border-radius: 15rpx;
+  border: 2rpx solid #FFC107;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.mahjong-selected-hu-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #F57F17;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.mahjong-selected-hu-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.mahjong-selected-hu-text {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 15rpx;
+}
+
+.mahjong-selected-hu-tile {
+  margin: 0 5rpx;
+}
+
+.mahjong-selected-hu-hand {
+  margin-bottom: 20rpx;
+}
+
+.mahjong-selected-hu-hand-label {
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.mahjong-reset-btn {
+  width: 100%;
+  padding: 15rpx;
+  background-color: #FF9800;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  margin-top: 10rpx;
+}
+
+.mahjong-reset-btn:active {
+  transform: scale(0.98);
+}
+
+/* 猜胡区样式 */
+.mahjong-guess-section {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  background-color: #E3F2FD;
+  border-radius: 15rpx;
+  border: 2rpx solid #1976D2;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.mahjong-guess-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #1565C0;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.mahjong-guess-tiles {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  padding: 0 5rpx;
+}
+
+.guessable-tile {
+  width: 60rpx;
+  height: 90rpx;
+  margin: 0 5rpx;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.guessable-tile:active {
+  transform: scale(1.05);
+}
+
+.mahjong-tile-selected {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(33, 150, 243, 0.3);
+  border-radius: 4rpx;
+  border: 2rpx solid #1976D2;
+  z-index: 2;
+}
+
+.mahjong-guess-confirm-btn {
+  width: 100%;
+  padding: 20rpx;
+  background-color: #1976D2;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  margin-top: 10rpx;
+}
+
+.mahjong-guess-confirm-btn:active {
+  transform: scale(0.98);
+}
+
+/* 用户选择的牌显示区样式 */
+.mahjong-selected-tiles-section {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.mahjong-selected-tiles-label {
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #1565C0;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.mahjong-selected-tiles {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 5rpx;
+  width: 100%;
+}
+
+.mahjong-selected-tiles .mahjong-hand-tile {
+  width: 48rpx;
+  height: 72rpx;
+  margin: 0 5rpx;
+  min-width: 48rpx;
+  flex: none;
+}
+
+.mahjong-selected-tiles-empty {
+  font-size: 20rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+
+/* 猜胡结果区样式 */
+.mahjong-guess-result {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.mahjong-guess-result-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.mahjong-guess-result-message {
+  font-size: 24rpx;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.mahjong-guess-result-correct {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.mahjong-guess-result-correct-text {
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.mahjong-guess-reset-btn {
+  width: 100%;
+  padding: 20rpx;
+  background-color: #FF9800;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  margin-top: 10rpx;
+}
+
+.mahjong-guess-reset-btn:active {
+  transform: scale(0.98);
+}
+
+/* 猜胡尝试次数显示区样式 */
+.mahjong-guess-attempts {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.mahjong-guess-attempts-text {
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #FF9800;
+}
+
+/* 公布答案按钮样式 */
+.mahjong-guess-answer-btn {
+  width: 100%;
+  padding: 20rpx;
+  background-color: #9C27B0;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  margin-top: 10rpx;
+}
+
+.mahjong-guess-answer-btn:active {
+  transform: scale(0.98);
+}
+
+/* 答案显示区样式 */
+.mahjong-answer-section {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  background-color: #F3E5F5;
+  border-radius: 15rpx;
+  border: 2rpx solid #9C27B0;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.mahjong-answer-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #7B1FA2;
+  text-align: center;
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.mahjong-answer-message {
+  font-size: 22rpx;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+/* 麻将规则说明区 */
+.mahjong-rule-section {
+  padding: 20rpx;
+  background-color: #F5F5F5;
+  border-radius: 10rpx;
+}
+
+.mahjong-rule-title {
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15rpx;
+}
+
+.mahjong-rule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.mahjong-rule-item {
+  font-size: 20rpx;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* 联系我们区域 */
+.contact-section {
+  margin-top: auto;
+  padding: 20rpx;
+  text-align: center;
+  font-size: 20rpx;
+  color: #666;
+  background-color: white;
+  border-radius: 10rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.contact-text {
+  display: block;
+}
+
+/* 响应式设计 */
+@media (max-width: 375px) {
+  .game-btn {
+    font-size: 24rpx;
+  }
+  
+  .game24-number {
+    width: 70rpx;
+    height: 70rpx;
+    font-size: 32rpx;
+  }
+  
+  .mahjong-tile {
+    width: 70rpx;
+    height: 100rpx;
+  }
+  
+  .mahjong-hand-tile {
+    width: 60rpx;
+    height: 85rpx;
+  }
+}

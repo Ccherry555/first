@@ -1,11 +1,11 @@
-<!--pages/index/index.wxml-->
-<!-- 互动点子库 - 主页面结构 -->
+<!--pages/naozi/naozi.wxml-->
+<!-- 互动点子库 - 脑子tab页面 -->
 
 <view class="container">
   <!-- 标题区域 -->
   <view class="title-section">
-    <text class="main-title">🎉 互动点子库 🎊</text>
-    <text class="sub-title">为您的聚会增添欢乐</text>
+    <text class="main-title">🧠 脑子游戏 🎮</text>
+    <text class="sub-title">挑战你的思维能力</text>
   </view>
 
   <!-- 游戏入口区 -->
@@ -42,7 +42,7 @@
       <input 
         class="game24-input" 
         type="text" 
-        placeholder="例如：(1 - 1) + (8 × 3)"
+        placeholder="例如：(9 × 8) - (8 × 3)"
         value="{{game24Expression}}"
         bindinput="onGame24Input"
         confirm-type="done"
@@ -150,26 +150,79 @@
     <!-- 操作按钮区 -->
     <view class="mahjong-buttons">
       <button class="mahjong-clear-btn" bindtap="clearMahjongHand">清空手牌</button>
-      <button class="mahjong-check-btn" bindtap="checkMahjongHu" disabled="{{mahjongHand.length !== 13}}">
-        判定胡牌
+      <button class="mahjong-check-btn" bindtap="startHuGuess" disabled="{{mahjongHand.length !== 13}}">
+        开始猜胡
       </button>
     </view>
 
-    <!-- 结果展示区 -->
-    <view class="mahjong-result" wx:if="{{mahjongResult}}">
-      <text class="mahjong-result-title">判定结果：</text>
-      <view class="mahjong-result-row">
-        <text class="mahjong-result-text">可胡牌：</text>
-        <text class="mahjong-result-value">
-          {{mahjongResult.huCardsText}}
-        </text>
+    <!-- 猜胡区：让用户选择可以胡的牌 -->
+    <view class="mahjong-guess-section" wx:if="{{showGuessSection}}">
+      <text class="mahjong-guess-title">请选择您认为可以胡的牌：</text>
+      <view class="mahjong-guess-tiles">
+        <view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:key="index" class="mahjong-hand-tile guessable-tile" bindtap="toggleGuessTile" data-tile="{{item}}">
+          <view class="mahjong-tile-content">
+            <text class="mahjong-tile-number">{{['', '一', '二', '三', '四', '五', '六', '七', '八', '九'][item]}}</text>
+            <text class="mahjong-tile-suit">萬</text>
+          </view>
+          <view wx:if="{{guessedTiles.indexOf(item) !== -1}}" class="mahjong-tile-selected"></view>
+        </view>
       </view>
-      <view class="mahjong-result-row">
-        <text class="mahjong-result-text">胡牌类型：</text>
-        <text class="mahjong-result-value">
-          {{mahjongResult.huTypeText}}
-        </text>
+      
+      <!-- 用户选择的牌显示区 -->
+      <view class="mahjong-selected-tiles-section">
+        <text class="mahjong-selected-tiles-label">您已选择：</text>
+        <view class="mahjong-selected-tiles">
+          <view wx:for="{{guessedTiles}}" wx:key="index" class="mahjong-hand-tile">
+            <view class="mahjong-tile-content">
+              <text class="mahjong-tile-number">{{['', '一', '二', '三', '四', '五', '六', '七', '八', '九'][item]}}</text>
+              <text class="mahjong-tile-suit">萬</text>
+            </view>
+          </view>
+          <text wx:if="{{guessedTiles.length === 0}}" class="mahjong-selected-tiles-empty">未选择任何牌</text>
+        </view>
       </view>
+      
+      <button class="mahjong-guess-confirm-btn" bindtap="confirmGuess">确定选择</button>
+    </view>
+
+    <!-- 猜胡结果区 -->
+    <view class="mahjong-guess-result" wx:if="{{guessResult}}">
+      <text class="mahjong-guess-result-title">{{guessResult.title}}</text>
+      <text class="mahjong-guess-result-message">{{guessResult.message}}</text>
+      <view wx:if="{{guessResult.correct}}" class="mahjong-guess-result-correct">
+        <text class="mahjong-guess-result-correct-text">正确可胡牌：</text>
+        <view class="mahjong-result-tiles">
+          <view wx:for="{{correctHuCards}}" wx:key="index" class="mahjong-hand-tile">
+            <view class="mahjong-tile-content">
+              <text class="mahjong-tile-number">{{['', '一', '二', '三', '四', '五', '六', '七', '八', '九'][item]}}</text>
+              <text class="mahjong-tile-suit">萬</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:else class="mahjong-guess-attempts">
+        <text class="mahjong-guess-attempts-text">剩余尝试次数：{{3 - wrongAttempts}}</text>
+      </view>
+      <!-- 全部猜对时不显示重新猜胡按钮 -->
+      <button wx:if="{{!guessResult.correct && wrongAttempts < 3}}" class="mahjong-guess-reset-btn" bindtap="resetGuess">重新猜胡</button>
+      <!-- 猜错3次后显示公布答案按钮 -->
+      <button wx:if="{{!guessResult.correct && wrongAttempts >= 3}}" class="mahjong-guess-answer-btn" bindtap="showAnswer">公布答案</button>
+    </view>
+
+    <!-- 答案显示区 -->
+    <view class="mahjong-answer-section" wx:if="{{showAnswerSection}}">
+      <text class="mahjong-answer-title">正确答案：</text>
+      <text class="mahjong-answer-message">不要灰心，下次一定可以猜对！</text>
+      <view class="mahjong-result-tiles">
+        <view wx:for="{{correctHuCards}}" wx:key="index" class="mahjong-hand-tile">
+          <view class="mahjong-tile-content">
+            <text class="mahjong-tile-number">{{['', '一', '二', '三', '四', '五', '六', '七', '八', '九'][item]}}</text>
+            <text class="mahjong-tile-suit">萬</text>
+          </view>
+        </view>
+        <text wx:if="{{correctHuCards.length === 0}}" class="mahjong-result-empty">无（此手牌无法胡牌）</text>
+      </view>
+      <button class="mahjong-guess-reset-btn" bindtap="resetGuess">重新开始</button>
     </view>
 
     <!-- 规则说明区 -->
@@ -179,92 +232,6 @@
         <text class="mahjong-rule-item">1. 常规胡牌：4组顺子/刻子 + 1对将牌</text>
         <text class="mahjong-rule-item">2. 七对胡牌：7个不同的对子</text>
         <text class="mahjong-rule-item">3. 顺子：如123万，刻子：如555万，将牌：如77万</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 场景选择区 -->
-  <view class="scene-section">
-    <text class="section-title">选择场景</text>
-    <!-- 横向可滚动的场景选择条，解决按钮过多显示不全的问题 -->
-    <scroll-view class="scene-scroll" scroll-x="true" show-scrollbar="false">
-      <view class="scene-buttons">
-        <!-- 根据 sceneList 动态渲染场景按钮，方便无限扩展 -->
-        <button
-          wx:for="{{sceneList}}"
-          wx:key="key"
-          class="scene-btn {{selectedScene === item.key ? 'active' : ''}}"
-          data-scene="{{item.key}}"
-          bindtap="selectScene"
-        >
-          {{item.label}}
-        </button>
-      </view>
-    </scroll-view>
-  </view>
-
-  <!-- 生成模式区：只有选中场景后才显示 -->
-  <view class="generate-section" id="generate-section" wx:if="{{selectedScene}}">
-    <text class="section-title">生成游戏</text>
-    
-    <!-- 随机生成按钮 -->
-    <button class="random-btn" bindtap="randomGenerate">
-      🎲 随机生成
-    </button>
-
-    <!-- 游戏列表：显示当前场景下的所有游戏名称 -->
-    <view class="game-list">
-      <text class="list-title">或选择指定游戏：</text>
-      <view 
-        class="game-item {{currentGame && currentGame.name === item.name ? 'active' : ''}}"
-        wx:for="{{sceneGames[selectedScene]}}"
-        wx:key="name"
-        data-name="{{item.name}}"
-        bindtap="selectGame"
-      >
-        {{item.name}}
-      </view>
-    </view>
-  </view>
-
-  <!-- 游戏详情区：只有生成游戏后才显示 -->
-  <view class="detail-section" id="game-detail" wx:if="{{currentGame}}">
-    <view class="detail-header">
-      <text class="game-name">{{currentGame.name}}</text>
-      <button class="change-btn" bindtap="changeGame">🔄 换一个</button>
-    </view>
-
-    <!-- 游戏描述 -->
-    <view class="detail-item">
-      <text class="detail-label">📝 游戏描述：</text>
-      <text class="detail-content">{{currentGame.desc}}</text>
-    </view>
-
-    <!-- 适合人数 -->
-    <view class="detail-item">
-      <text class="detail-label">👥 适合人数：</text>
-      <text class="detail-content">{{currentGame.people}}</text>
-    </view>
-
-    <!-- 道具列表 -->
-    <view class="detail-item">
-      <text class="detail-label">🎁 所需道具：</text>
-      <view class="props-list">
-        <view class="props-item" wx:for="{{currentGame.props}}" wx:key="*this" wx:for-item="prop">
-          <text class="props-dot">•</text>
-          <text>{{prop}}</text>
-        </view>
-      </view>
-    </view>
-
-    <!-- 规则列表 -->
-    <view class="detail-item">
-      <text class="detail-label">📋 游戏规则：</text>
-      <view class="rules-list">
-        <view class="rule-item" wx:for="{{currentGame.rules}}" wx:key="*this" wx:for-item="rule" wx:for-index="index">
-          <text class="rule-num">{{index + 1}}.</text>
-          <text class="rule-text">{{rule}}</text>
-        </view>
       </view>
     </view>
   </view>

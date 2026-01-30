@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/dianzi/dianzi",
+    "pages/naozi/naozi"
   ],
   "window": {
     "navigationBarTitleText": "互动点子库",
@@ -8,6 +9,26 @@
     "navigationBarTextStyle": "white",
     "backgroundColor": "#FFF3E0",
     "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#D32F2F",
+    "backgroundColor": "#FFF3E0",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/dianzi/dianzi",
+        "text": "点子",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/naozi/naozi",
+        "text": "脑子",
+        "iconPath": "",
+        "selectedIconPath": ""
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
