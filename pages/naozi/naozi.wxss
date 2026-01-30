@@ -322,23 +322,30 @@
 
 .mahjong-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 20rpx;
+  gap: 15rpx;
 }
 
 .mahjong-title {
   font-size: 32rpx;
   font-weight: bold;
   color: #1976D2;
+  flex: 1;
 }
 
-.mahjong-close {
-  font-size: 32rpx;
-  color: #666;
-  background: none;
+.mahjong-classic-btn {
+  padding: 10rpx 20rpx;
+  background-color: #FF9800;
+  color: white;
+  border-radius: 8rpx;
+  font-size: 18rpx;
+  font-weight: bold;
   border: none;
-  padding: 0;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+  min-width: 120rpx;
+  text-align: center;
 }
 
 .mahjong-rules {
@@ -531,65 +538,31 @@
 /* 麻将操作按钮区 */
 .mahjong-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-bottom: 30rpx;
-}
-
-.mahjong-clear-btn {
-  flex: 1;
-  margin: 0 10rpx;
-  padding: 20rpx;
-  background-color: #FF9800;
-  color: white;
-  border-radius: 10rpx;
-  font-size: 24rpx;
-  font-weight: bold;
-  text-align: center;
-  border: none;
-  transition: all 0.3s ease;
-  animation: pulse 2s infinite;
-}
-
-.mahjong-clear-btn:active {
-  transform: scale(0.95);
-  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.2);
-  background-color: #F57C00;
-}
-
-.mahjong-classic-btn {
-  flex: 1;
-  margin: 0 10rpx;
-  padding: 20rpx;
-  background-color: #FF9800;
-  color: white;
-  border-radius: 10rpx;
-  font-size: 24rpx;
-  font-weight: bold;
-  text-align: center;
-  border: none;
-  transition: all 0.3s ease;
-  animation: pulse 2s infinite;
-}
-
-.mahjong-classic-btn:active {
-  transform: scale(0.95);
-  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.2);
-  background-color: #F57C00;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 5rpx;
 }
 
 .mahjong-check-btn {
-  flex: 1;
-  margin: 0 10rpx;
-  padding: 20rpx;
+  width: 100%;
+  max-width: 300rpx;
+  padding: 15rpx;
   background-color: #4CAF50;
   color: white;
-  border-radius: 10rpx;
-  font-size: 24rpx;
+  border-radius: 8rpx;
+  font-size: 20rpx;
   font-weight: bold;
   text-align: center;
   border: none;
   transition: all 0.3s ease;
   animation: pulse 2s infinite;
+  min-height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .mahjong-check-btn:active {
