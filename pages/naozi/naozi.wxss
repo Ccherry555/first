@@ -58,56 +58,64 @@
 }
 
 .game24-btn {
-  background-color: #1976D2;
+  background-color: #388E3C;
   color: white;
 }
 
 .mahjong-btn {
-  background-color: #388E3C;
+  background-color: #1976D2;
   color: white;
 }
 
 /* 24点算术区域 */
 .game24-area {
-  background-color: white;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
   border-radius: 20rpx;
-  padding: 30rpx;
-  margin-bottom: 30rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 6rpx 20rpx rgba(76, 175, 80, 0.2);
 }
 
 .game24-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20rpx;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #4CAF50;
 }
 
 .game24-title {
-  font-size: 32rpx;
+  font-size: 36rpx;
   font-weight: bold;
-  color: #1976D2;
+  color: #2E7D32;
 }
 
 .game24-close {
-  font-size: 32rpx;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #fff;
   color: #666;
-  background: none;
+  font-size: 32rpx;
+  border-radius: 50%;
   border: none;
   padding: 0;
 }
 
+.game24-close::after {
+  border: none;
+}
+
 .game24-rules {
   margin-bottom: 30rpx;
-  padding: 20rpx;
-  background-color: #E3F2FD;
-  border-radius: 10rpx;
+  text-align: center;
 }
 
 .game24-rule-text {
-  font-size: 24rpx;
-  color: #1565C0;
-  line-height: 1.5;
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.6;
 }
 
 /* 24点数字显示 */
@@ -115,20 +123,20 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 30rpx;
+  gap: 20rpx;
 }
 
 .game24-number {
-  width: 80rpx;
-  height: 80rpx;
-  background-color: #1976D2;
-  color: white;
-  border-radius: 15rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36rpx;
+  flex: 1;
+  height: 120rpx;
+  line-height: 120rpx;
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  color: #fff;
+  font-size: 48rpx;
   font-weight: bold;
-  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2);
+  border-radius: 15rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 12rpx rgba(76, 175, 80, 0.3);
 }
 
 /* 24点输入区域 */
@@ -138,20 +146,23 @@
 
 .game24-input-label {
   display: block;
-  font-size: 24rpx;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  color: #2E7D32;
+  font-weight: 500;
+  margin-bottom: 15rpx;
 }
 
 .game24-input {
   width: 100%;
-  padding: 20rpx;
-  border: 2rpx solid #BDBDBD;
-  border-radius: 10rpx;
-  font-size: 24rpx;
+  height: 80rpx;
+  background: #fff;
+  border: 2rpx solid #4CAF50;
+  border-radius: 15rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
   margin-bottom: 20rpx;
-  background-color: #FAFAFA;
 }
 
 /* 24点虚拟键盘 */
@@ -161,69 +172,87 @@
 
 .game24-key-row {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   margin-bottom: 10rpx;
 }
 
 .game24-key {
   flex: 1;
-  margin: 0 5rpx;
-  padding: 15rpx;
-  border-radius: 8rpx;
-  font-size: 24rpx;
-  font-weight: bold;
+  margin-right: 10rpx;
+  min-height: 70rpx;
+  background: #ffffff;
+  border-radius: 12rpx;
+  border: 2rpx solid #C8E6C9;
+  font-size: 28rpx;
+  color: #2E7D32;
   text-align: center;
-  background-color: #F5F5F5;
-  border: 1rpx solid #E0E0E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.04);
+}
+
+.game24-key:last-child {
+  margin-right: 0;
 }
 
 .game24-key.wide {
-  flex: 2;
+  flex: 1.5;
 }
 
 /* 24点按钮区域 */
 .game24-buttons {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 20rpx;
+  flex-wrap: wrap;
+  gap: 15rpx;
+  justify-content: space-between;
+}
+
+.game24-submit-btn,
+.game24-new-btn,
+.game24-answer-btn {
+  flex: 1;
+  min-width: calc(33.33% - 10rpx);
+  min-height: 90rpx;
+  padding: 12rpx 8rpx;
+  border-radius: 45rpx;
+  border: none;
+  font-size: 24rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 
 .game24-submit-btn {
-  flex: 1;
-  margin: 0 5rpx;
-  padding: 20rpx;
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 10rpx;
-  font-size: 24rpx;
-  font-weight: bold;
-  text-align: center;
-  border: none;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(76, 175, 80, 0.3);
 }
 
 .game24-new-btn {
-  flex: 1;
-  margin: 0 5rpx;
-  padding: 20rpx;
-  background-color: #FF9800;
-  color: white;
-  border-radius: 10rpx;
-  font-size: 24rpx;
-  font-weight: bold;
-  text-align: center;
-  border: none;
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+  color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(255, 152, 0, 0.3);
 }
 
 .game24-answer-btn {
-  flex: 1;
-  margin: 0 5rpx;
-  padding: 20rpx;
-  background-color: #9C27B0;
-  color: white;
-  border-radius: 10rpx;
-  font-size: 24rpx;
-  font-weight: bold;
-  text-align: center;
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(33, 150, 243, 0.3);
+}
+
+.game24-submit-btn::after,
+.game24-new-btn::after,
+.game24-answer-btn::after {
   border: none;
 }
 
@@ -231,28 +260,29 @@
 .game24-message {
   margin-top: 20rpx;
   padding: 20rpx;
-  border-radius: 10rpx;
+  border-radius: 15rpx;
   text-align: center;
 }
 
 .game24-message-text {
-  font-size: 24rpx;
-  font-weight: bold;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 .game24-message-text.success {
   color: #4CAF50;
-  background-color: #E8F5E8;
+  background: #E8F5E9;
 }
 
 .game24-message-text.error {
   color: #F44336;
-  background-color: #FFEBEE;
+  background: #FFEBEE;
 }
 
 .game24-message-text.info {
   color: #2196F3;
-  background-color: #E3F2FD;
+  background: #E3F2FD;
 }
 
 /* 麻将胡牌区域 */
@@ -274,7 +304,7 @@
 .mahjong-title {
   font-size: 32rpx;
   font-weight: bold;
-  color: #388E3C;
+  color: #1976D2;
 }
 
 .mahjong-close {
@@ -313,14 +343,16 @@
 
 .mahjong-tiles {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0 5rpx;
+  margin-bottom: 20rpx;
 }
 
 .mahjong-tile {
-  width: 60rpx;
-  height: 90rpx;
-  margin: 10rpx;
+  flex: 1;
+  height: 80rpx;
+  margin: 0 3rpx;
   border-radius: 8rpx;
   display: flex;
   align-items: center;
@@ -330,23 +362,14 @@
   position: relative;
   overflow: hidden;
   transition: all 0.2s ease;
-}
-
-.mahjong-tile:active {
-  transform: scale(0.95);
-  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2);
-  background-color: #E0E0E0;
-}
-
-.mahjong-tile::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  /* 确保按钮没有默认样式 */
+  padding: 0;
+  line-height: normal;
+  font-size: normal;
+  font-weight: normal;
+  color: #333;
   background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
-  z-index: 0;
+  min-width: 50rpx;
 }
 
 .mahjong-tile-content {
@@ -355,20 +378,62 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 5rpx;
+  box-sizing: border-box;
 }
 
 .mahjong-tile-number {
-  font-size: 22rpx;
+  font-size: 20rpx;
   font-weight: bold;
   color: #333;
-  margin-bottom: 3rpx;
+  margin-bottom: 2rpx;
+  line-height: 1;
 }
 
 .mahjong-tile-suit {
-  font-size: 28rpx;
+  font-size: 24rpx;
   font-weight: bold;
   color: #D32F2F;
+  line-height: 1;
 }
+
+.mahjong-tile::after {
+  border: none !important;
+}
+
+.mahjong-tile:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.mahjong-tile:active {
+  transform: scale(0.9) !important;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2) !important;
+  background-color: #E0E0E0 !important;
+  background: linear-gradient(135deg, #E0E0E0 0%, #D0D0D0 100%) !important;
+  /* 确保点击效果明显 */
+  animation: clickEffect 0.2s ease-in-out !important;
+}
+
+/* 点击动画效果 */
+@keyframes clickEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+    background-color: #D0D0D0;
+  }
+  100% {
+    transform: scale(0.9);
+    background-color: #E0E0E0;
+  }
+}
+
+
 
 /* 手牌展示区 */
 .mahjong-hand-section {
@@ -391,15 +456,16 @@
 }
 
 .mahjong-hand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  width: 100%;
+  justify-content: flex-start;
+  gap: 3rpx;
 }
 
 .mahjong-hand-tile {
-  flex: 1;
+  width: 50rpx;
   height: 70rpx;
-  margin: 0 1rpx;
+  margin: 0 3rpx;
   border-radius: 4rpx;
   display: flex;
   align-items: center;
@@ -408,7 +474,7 @@
   border: 2rpx solid #FFD54F;
   position: relative;
   overflow: hidden;
-  min-width: 45rpx;
+  flex-shrink: 0;
 }
 
 .mahjong-hand-tile::before {
@@ -625,12 +691,13 @@
 }
 
 .guessable-tile {
-  width: 60rpx;
-  height: 90rpx;
-  margin: 0 5rpx;
+  flex: 1;
+  height: 80rpx;
+  margin: 0 3rpx;
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
+  min-width: 50rpx;
 }
 
 .guessable-tile:active {
